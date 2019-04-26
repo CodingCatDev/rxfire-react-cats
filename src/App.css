@@ -1,33 +1,51 @@
-.App {
-  text-align: center;
+.myButton {
+  -moz-box-shadow: 0px 10px 14px -7px #681790;
+  -webkit-box-shadow: 0px 10px 14px -7px #681790;
+  box-shadow: 0px 10px 14px -7px #681790;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #681790),
+    color-stop(1, #681790)
+  );
+  background: -moz-linear-gradient(top, #681790 5%, #681790 100%);
+  background: -webkit-linear-gradient(top, #681790 5%, #681790 100%);
+  background: -o-linear-gradient(top, #681790 5%, #681790 100%);
+  background: -ms-linear-gradient(top, #681790 5%, #681790 100%);
+  background: linear-gradient(to bottom, #681790 5%, #681790 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#681790', endColorstr='#681790',GradientType=0);
+  background-color: #681790;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 13px 32px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #3d768a;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.myButton:hover {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #681790),
+    color-stop(1, #681790)
+  );
+  background: -moz-linear-gradient(top, #681790 5%, #681790 100%);
+  background: -webkit-linear-gradient(top, #681790 5%, #681790 100%);
+  background: -o-linear-gradient(top, #681790 5%, #681790 100%);
+  background: -ms-linear-gradient(top, #681790 5%, #681790 100%);
+  background: linear-gradient(to bottom, #681790 5%, #681790 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#681790', endColorstr='#681790',GradientType=0);
+  background-color: #681790;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.myButton:active {
+  position: relative;
+  top: 1px;
 }

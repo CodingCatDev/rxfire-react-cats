@@ -2,7 +2,9 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 import firebase from 'firebase/app';
+import { authState } from 'rxfire/auth';
 import { collectionData } from 'rxfire/firestore';
+import { filter } from 'rxjs/operators';
 
 const app = firebase.initializeApp({
   apiKey: 'AIzaSyAQGKpP9F_A_HMVOHPYPjocD1P7yg-3YAk',
@@ -15,7 +17,8 @@ const app = firebase.initializeApp({
 
 const firestore = firebase.firestore(app);
 const auth = firebase.auth(app);
+const loggedIn$ = authState(auth).pipe(filter(user => !!user));
 
-export { auth, collectionData };
+export { app, auth, firestore, collectionData, loggedIn$ };
 
-export default firestore;
+export default firebase;

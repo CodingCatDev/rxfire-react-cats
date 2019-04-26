@@ -1,8 +1,6 @@
 import React from 'react';
 
-import firestore from '../Firebase';
-
-
+import { firestore } from '../Firebase';
 
 class AddCat extends React.Component {
   state = {
@@ -16,11 +14,27 @@ class AddCat extends React.Component {
       .then(blob => blob.json())
       .then(value => {
         console.log('fetched', value);
-        firestore.collection('catfacts').add(value);
+        firestore
+          .collection('catfacts')
+          .add({ ...value, uid: this.props.user.uid, catFactDate: new Date() })
+          .then(
+            () => {},
+            reason => {
+              alert('Must Be Logged In To Add, See Console');
+              console.log('Failed Adding Cat Fact', reason);
+            }
+          );
       });
   };
   render() {
-    return <button onClick={this.addCatFact}>Add Cat Fact</button>;
+    let addCatButton = null;
+    if (this.props.user)
+      addCatButton = (
+        <button className="myButton" onClick={this.addCatFact}>
+          2. Add Cat Fact
+        </button>
+      );
+    return addCatButton;
   }
 }
 
