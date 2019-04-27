@@ -1,3 +1,22 @@
+# AJ's Resources
+
+📍Patreon: https://bit.ly/ajonp-patreon
+⚙️Gear: https://bit.ly/ajonp-teespring
+🎥 YouTube: https://bit.ly/ajonp-youtube-sub
+🌎 Site: https://ajonp.com
+📦 GitHub: https://github.com/ajonpllc
+🗞AJ’s Week in Web: https://bit.ly/aj-week-in-web
+💬 Slack: https://bit.ly/ajonp-slack-invite
+🐦 Twitter: https://bit.ly/ajonp-twitter
+
+# Lesson
+
+http://ajonp.com/lessons/rxfire-in-reactjs-using-firebase-firestore-and-authentication/
+
+# Demo
+
+https://rxfirereact.ajonp.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
