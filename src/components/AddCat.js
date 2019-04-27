@@ -3,9 +3,6 @@ import React from 'react';
 import { firestore } from '../Firebase';
 
 class AddCat extends React.Component {
-  state = {
-    catfacts: null
-  };
   addCatFact = () => {
     /* The dreaded CORS, had to pass through a proxy */
     fetch(

@@ -6,15 +6,16 @@ import AddCat from './components/AddCat';
 import Instructions from './components/Instructions';
 import ListCatFacts from './components/ListCatFacts';
 import SignIn from './components/SignIn';
-import firebase, { app, firestore, loggedIn$ } from './Firebase';
+import { firestore, loggedIn$ } from './Firebase';
 
 class App extends React.Component {
   state = {
     user: null
   };
   componentDidMount() {
+    /* Observable from RxFire */
     loggedIn$.subscribe(user => {
-      this.authHandler({ user });
+      this.authHandler({ user }); //Update state on load of app
       const { displayName, email, phoneNumber, photoURL } = user;
       firestore
         .collection('users')
@@ -23,20 +24,12 @@ class App extends React.Component {
     });
   }
   authHandler = async authData => {
+    this.setUser(authData.user);
+  };
+  setUser = user => {
     this.setState({
-      user: authData.user
+      user: user
     });
-  };
-  signIn = () => {
-    const authProvider = new firebase.auth.GoogleAuthProvider();
-    app
-      .auth()
-      .signInWithPopup(authProvider)
-      .then(this.authHandler);
-  };
-  signOut = async () => {
-    await firebase.auth().signOut();
-    this.setState({ user: null });
   };
   render() {
     return (
@@ -57,10 +50,10 @@ class App extends React.Component {
           <Instructions />
           <SignIn
             user={this.state.user}
-            signIn={this.signIn}
-            signOut={this.signOut}
+            authHandler={this.authHandler}
+            setUser={this.setUser}
           />
-          <div>
+          <div style={{ maxWidth: '800px' }}>
             <AddCat user={this.state.user} />
             <ListCatFacts user={this.state.user} />
           </div>
