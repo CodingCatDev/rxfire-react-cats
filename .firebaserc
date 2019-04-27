@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "ajonp-rxfire-react-cats"
+  },
+  "targets": {
+    "ajonp-hosting-lessons": {
+      "hosting": {
+        "ajonp-rxfire-react": [
+          "ajonp-rxfire-react"
+        ]
+      }
+    }
   }
 }
