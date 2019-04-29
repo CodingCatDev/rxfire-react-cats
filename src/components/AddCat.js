@@ -1,27 +1,17 @@
 import React from 'react';
 
 import { firestore } from '../Firebase';
+import catFacts from '../random.js';
 
 class AddCat extends React.Component {
   addCatFact = async () => {
     try {
-      /* The dreaded CORS, had to pass through a proxy */
-      const blob = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1`
-      );
-      const value = await blob.json();
+      const value = catFacts[Math.floor(Math.random() * catFacts.length)];
       await firestore
         .collection('catfacts')
         .add({ ...value, uid: this.props.user.uid, catFactDate: new Date() });
     } catch (error) {
       console.error(error);
-      await firestore.collection('catfacts').add({
-        text: `API Failed so, Random cat fact #${Math.round(
-          Math.random() * 1000000
-        )}`,
-        uid: this.props.user.uid,
-        catFactDate: new Date()
-      });
     }
   };
   render() {
